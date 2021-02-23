@@ -1,0 +1,79 @@
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    animation: fromLeft 1.2s ease-out;
+}
+
+.text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    animation: fromRight 1.2s ease-out;
+}
+
+.select {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.select select,
+.select input {
+    background-color: mediumpurple;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0 0.5rem;
+}
+
+.select input {
+    max-width: 40px;
+}
+
+.select option {
+    background-color: mediumpurple;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.selectText {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px 0 0;
+}
+
+@keyframes fromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(-3%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(3%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

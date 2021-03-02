@@ -1,16 +1,32 @@
-import {useHistory} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
-import Button from "../Button";
+import Button from '../../components/Button';
 
-import s from "./style.module.css";
+import { ICategoryOptions, IDifficultyOptions } from '../../data';
+import s from './style.module.css';
 
-const Start = ({difficultyOptions, setDifficulty, categoryOptions, setCategory, count, setCount}) => {
+interface IStartProps {
+    difficultyOptions: Array<IDifficultyOptions>
+    categoryOptions: Array<ICategoryOptions>
+    count: number
+    setCount: any
+    setCategory: any
+    setDifficulty: any
+}
 
+const Start: React.FC<IStartProps> = ({
+                                          count,
+                                          difficultyOptions,
+                                          categoryOptions,
+                                          setDifficulty,
+                                          setCategory,
+                                          setCount
+                                      }) => {
     const history = useHistory();
 
-    const handleStartClick = () => {
-        history.push("/quiz");
-    }
+    const handleStartClick = (): void => {
+        history.push('/quiz');
+    };
 
     return (
         <>
@@ -28,7 +44,7 @@ const Start = ({difficultyOptions, setDifficulty, categoryOptions, setCategory, 
             </label>
             <label className={s.select}>
                 <p className={s.selectText}>Choose number of questions:</p>
-                <input type="number" min="10" max="50" value={count} onChange={e => {setCount(e.target.value)}}/>
+                <input type="number" min="10" max="50" value={count} onChange={e => setCount(e.target.value)}/>
             </label>
             <label className={s.select}>
                 <p className={s.selectText}>Choose category:</p>
@@ -40,9 +56,9 @@ const Start = ({difficultyOptions, setDifficulty, categoryOptions, setCategory, 
                     ))}
                 </select>
             </label>
-            <Button descr={"Start Quiz"} handleClick={handleStartClick}/>
+            <Button desc={'Start Quiz'} handleClick={handleStartClick}/>
         </>
-    )
-}
+    );
+};
 
 export default Start;
